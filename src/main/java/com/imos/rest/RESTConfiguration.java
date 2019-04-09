@@ -6,13 +6,19 @@
 package com.imos.rest;
 
 import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import org.glassfish.jersey.media.multipart.MultiPartFeature;
+import org.glassfish.jersey.server.ResourceConfig;
 
 /**
  *
  * @author p
  */
-@ApplicationPath("/")
-public class RESTConfiguration extends Application {
+@ApplicationPath("rest")
+public class RESTConfiguration extends ResourceConfig {
+
+    public RESTConfiguration() {
+        packages("com.imos.rest");
+        register(MultiPartFeature.class);
+    }
     
 }
